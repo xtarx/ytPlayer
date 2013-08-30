@@ -15,7 +15,7 @@ exports.play = function(id) {
 function getVideo(id) {
     var client = Ti.Network.createHTTPClient();
     client.onload = function () {
-        var json = decodeURIComponent(decodeURIComponent(decodeURIComponent(decodeURIComponent(this.responseText.substring(4, this.responseText.length)))));
+	var json = (this.responseText.substring(4, this.responseText.length));
         var response = JSON.parse(json);
         var video = response.content.video;
         var isHighQuality = video['fmt_stream_map'] != null;
